@@ -1,21 +1,21 @@
 #lang racket
 
-(require peg/peg)
+(require peg)
 (require "parser.rkt")
 
 (provide s-exp->scheme)
 
 (define (s-exp->scheme s-exp)
   (match s-exp
-    (`(s-exp boolean . "#t") #t)
-    (`(s-exp boolean . "#f") #f)
+    (`(boolean . "#t") #t)
+    (`(boolean . "#f") #f)
 
-    (`(s-exp symbol . ,s) (string->symbol s))
+    (`(symbol . ,s) (string->symbol s))
 
-    (`(s-exp number . ,n) (string->number n))
+    (`(number . ,n) (string->number n))
 
-    (`(s-exp string . ,s) s)
+    (`(string . ,s) s)
 
-    (`(s-exp . ,xs) (map s-exp->scheme xs))
+    (`(list . ,xs) (map s-exp->scheme xs))
     
     (else (error 's-exp->scheme "not an s-expression AST ~a" s-exp))))
