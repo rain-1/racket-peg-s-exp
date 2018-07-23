@@ -2,7 +2,7 @@
 
 (require rackunit)
 
-(require peg/peg)
+(require peg)
 (require "parser.rkt")
 (require "transformer.rkt")
 
