@@ -1,6 +1,6 @@
 #lang racket
 
-(require peg/peg)
+(require peg)
 (require "parser.rkt")
 
 (provide s-exp->scheme)
