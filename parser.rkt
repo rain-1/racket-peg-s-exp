@@ -7,7 +7,7 @@ DQ < ["] ;
 
 s-exp <- atom / list ;
 atom <- boolean / symbol / number / string ;
-list <-- OB (_ s-exp)*  CB ;
+list <-- OB _ (s-exp _)*  CB ;
 
 boolean <-- '#t' / '#f' ;
 symbol <-- [a-zA-Z\-]+ ;
