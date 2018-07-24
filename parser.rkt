@@ -12,6 +12,11 @@ symbol <-- [a-zA-Z\-]+ ;
 number <-- [0-9]+ ;
 string <-- DQ [^"]* DQ ;
 
-quote <-- '\'' s-exp ;
-quasiquote <-- '`' s-exp ;
-unquote <-- ',' s-exp ;
+
+SQ < '\'' ;
+BQ < '`' ;
+COMMA < ',' ;
+
+quote <-- SQ s-exp ;
+quasiquote <-- BQ s-exp ;
+unquote <-- COMMA s-exp ;
