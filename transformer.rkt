@@ -18,4 +18,10 @@
 
     (`(list . ,xs) (map s-exp->scheme xs))
     
+    (`(quot . ,xs) (quote (s-exp->scheme xs)))
+    
+    (`(quasiquot . ,xs) (quasiquote (s-exp->scheme xs)))
+    
+    (`(unquot . ,xs) (unquote (s-exp->scheme xs)))
+    
     (else (error 's-exp->scheme "not an s-expression AST ~a" s-exp))))
