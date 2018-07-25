@@ -26,10 +26,18 @@
 (check-equal?
  (s-exp->scheme (peg s-exp "'(a b c)"))
  '(quote (a b c)))
- 
 (check-equal?
  (s-exp->scheme (peg s-exp "`(a b ,(c d e))"))
  '(quasiquote (a b (unquote (c d e)))))
+(check-equal?
+ (s-exp->scheme (peg s-exp "'''x"))
+ ''''x)
+(check-equal?
+ (s-exp->scheme (peg s-exp "'``'x"))
+ ''``'x)
+(check-equal?
+ (s-exp->scheme (peg s-exp "'``'`'x"))
+ ''``'`'x)
 
 ;; + and numbers
 (check-equal?
