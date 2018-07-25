@@ -12,7 +12,7 @@
     (`(boolean . "#t") #t)
     (`(boolean . "#f") #f)
 
-    (`(symbol . ,s) (string->symbol s))
+    (`(identifier . ,s) (string->symbol s))
 
     (`(number . ,n) (string->number n))
 
