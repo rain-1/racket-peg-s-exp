@@ -40,3 +40,8 @@
 (check-equal?
  (s-exp->scheme (peg s-exp "((lambda (x) (+ x 1)) 13)"))
  '((lambda (x) (+ x 1)) 13))
+
+;; escaping inside strings
+(check-equal?
+ (s-exp->scheme (peg s-exp "(\"ABC\" \"A\\\\B\\\\C\" \"A\\\"B\\\"C\")"))
+ '("ABC" "A\\B\\C" "A\"B\"C"))
