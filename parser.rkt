@@ -5,11 +5,11 @@ OB < '(' ;
 CB < ')' ;
 DQ < ["] ;
 
-s-exp <- atom / list / quote / quasiquote / unquote ;
-atom <- boolean / symbol / number / string ;
+s-exp <-  list / quote / quasiquote / unquote  / atom;
+atom <- boolean / number / identifier/ string ;
 list <-- OB _ (s-exp _)*  CB ;
 boolean <-- '#t' / '#f' ;
-symbol <-- [a-zA-Z\-]+ ;
+identifier <--   [^ ()\[\]{}",'`;#|\\]+ ;
 number <-- [0-9]+ ;
 string <-- DQ [^"]* DQ ;
 
