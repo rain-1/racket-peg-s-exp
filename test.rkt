@@ -35,3 +35,8 @@
 (check-equal?
  (s-exp->scheme (peg s-exp "(+ 1 2)"))
  '(+ 1 2))
+
+;; lambda expressions
+(check-equal?
+ (s-exp->scheme (peg s-exp "((lambda (x) (+ x 1)) 13)"))
+ '((lambda (x) (+ x 1)) 13))
